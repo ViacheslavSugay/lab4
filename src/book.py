@@ -20,9 +20,6 @@ class PaperBook(Book):
     def get_weight(self):
         return self.weight
 
-    def is_heavy(self):
-        return self.weight > 500
-
     def __repr__(self):
         return (f"PrintedBook('{self.title}', '{self.author}', {self.year}, "
                 f"'{self.genre}', '{self.isbn}', {self.pages}, {self.weight}, '{self.cover_type}')")

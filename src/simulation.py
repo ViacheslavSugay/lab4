@@ -41,7 +41,7 @@ def run_simulation(steps: int = 20, seed: int | None = None) -> None:
             book = DigitalBook(title, author, year, genre, isbn, file_size, format_type, drm_protected)
             library.add_book(book)
             generated_isbns.append(isbn)
-            print(f"{step}) Добавлена электронная книга: '{title}' ({author}, {year}), {format_type}, {file_size}MB")
+            print(f"{step}) Добавлена электронная книга: '{book.title}' ({book.author}, {book.year}), {book.format_type}, {book.file_size}MB, {'нельзя копировать' if book.drm_protected else 'можно копировать'}")
 
         elif event_type == 3:
             if not generated_isbns:
