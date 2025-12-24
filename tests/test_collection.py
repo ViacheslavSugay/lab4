@@ -64,3 +64,26 @@ def test_indexdict_remove_book():
     index.remove_book(book1)
     assert index.find_isbn("ISBN-1") is None
     assert len(index.find_author("Author1")) == 1
+
+
+def test_bookcollection_slices():
+    collection = BookCollection()
+
+    books = [
+        Book("Book1", "Author1", 2020, "Genre", "ISBN-1"),
+        Book("Book2", "Author2", 2021, "Genre", "ISBN-2"),
+        Book("Book3", "Author3", 2022, "Genre", "ISBN-3"),
+        Book("Book4", "Author4", 2023, "Genre", "ISBN-4"),
+    ]
+
+    for book in books:
+        collection.append(book)
+
+    slice_result = collection.data[1:3]
+    assert len(slice_result) == 2
+    assert slice_result[0].title == "Book2"
+    assert slice_result[1].title == "Book3"
+
+    assert len(collection.data[::2]) == 2
+    assert len(collection.data[-2:]) == 2
+    assert len(collection.data[10:20]) == 0
