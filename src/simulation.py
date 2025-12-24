@@ -26,7 +26,7 @@ def run_simulation(steps: int = 20, seed: int | None = None) -> None:
             book = PaperBook(title, author, year, genre, isbn, pages, weight, cover_type)
             library.add_book(book)
             generated_isbns.append(isbn)
-            print(f"{step}) Добавлена бумажная книга: '{title}' ({author}, {year}), {pages} стр., {weight}г")
+            print(f"{step}) Добавлена бумажная книга: '{title}' ({author}, {year}), {pages} стр., {weight}г, {book.cover_type} обложка")
 
         elif event_type == 2:
             title = random.choice(titles)
