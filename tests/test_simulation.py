@@ -1,7 +1,7 @@
 import pytest
 from src.simulation import run_simulation
 from src.library import Library
-from src.book import PrintedBook, Ebook
+from src.book import PaperBook, DigitalBook
 from src.data import book_data, titles
 
 
@@ -11,7 +11,7 @@ class TestSimulation:
         library = Library()
 
         book_info = book_data[titles[0]]
-        book = PrintedBook(
+        book = PaperBook(
             titles[0],
             book_info["author"],
             book_info["year"],
@@ -31,7 +31,7 @@ class TestSimulation:
         library = Library()
 
         book_info = book_data[titles[1]]
-        book = Ebook(
+        book = DigitalBook(
             titles[1],
             book_info["author"],
             book_info["year"],
@@ -68,7 +68,7 @@ class TestSimulation:
     def test_book_creation(self):
         book_info = book_data[titles[0]]
 
-        printed_book = PrintedBook(
+        printed_book = PaperBook(
             titles[0],
             book_info["author"],
             book_info["year"],
@@ -79,7 +79,7 @@ class TestSimulation:
             "Твёрдая"
         )
 
-        ebook = Ebook(
+        ebook = DigitalBook(
             titles[1],
             book_info["author"],
             book_info["year"],

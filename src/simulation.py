@@ -1,6 +1,6 @@
 import random
 from src.library import Library
-from src.book import PrintedBook, Ebook
+from src.book import PaperBook, DigitalBook
 from src.data import book_data, titles
 
 def run_simulation(steps: int = 20, seed: int | None = None) -> None:
@@ -23,7 +23,7 @@ def run_simulation(steps: int = 20, seed: int | None = None) -> None:
             pages = random.randint(100, 1000)
             weight = random.randint(200, 800)
             cover_type = random.choice(["Твёрдая", "Мягкая"])
-            book = PrintedBook(title, author, year, genre, isbn, pages, weight, cover_type)
+            book = PaperBook(title, author, year, genre, isbn, pages, weight, cover_type)
             library.add_book(book)
             generated_isbns.append(isbn)
             print(f"{step}) Добавлена бумажная книга: '{title}' ({author}, {year}), {pages} стр., {weight}г")
@@ -38,7 +38,7 @@ def run_simulation(steps: int = 20, seed: int | None = None) -> None:
             file_size = random.randint(1, 50)
             format_type = random.choice(["PDF", "EPUB", "FB2"])
             drm_protected = random.choice([True, False])
-            book = Ebook(title, author, year, genre, isbn, file_size, format_type, drm_protected)
+            book = DigitalBook(title, author, year, genre, isbn, file_size, format_type, drm_protected)
             library.add_book(book)
             generated_isbns.append(isbn)
             print(f"{step}) Добавлена электронная книга: '{title}' ({author}, {year}), {format_type}, {file_size}MB")

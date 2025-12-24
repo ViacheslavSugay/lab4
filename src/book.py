@@ -10,7 +10,7 @@ class Book:
         return f"Book('{self.title}', '{self.author}', {self.year}, '{self.genre}', '{self.isbn}')"
 
 
-class PrintedBook(Book):
+class PaperBook(Book):
     def __init__(self, title, author, year, genre, isbn, pages, weight, cover_type):
         super().__init__(title, author, year, genre, isbn)
         self.pages = pages
@@ -28,7 +28,7 @@ class PrintedBook(Book):
                 f"'{self.genre}', '{self.isbn}', {self.pages}, {self.weight}, '{self.cover_type}')")
 
 
-class Ebook(Book):
+class DigitalBook(Book):
     def __init__(self, title, author, year, genre, isbn, file_size, format_type, drm_protected):
         super().__init__(title, author, year, genre, isbn)
         self.file_size = file_size
